@@ -1,0 +1,614 @@
+{
+  "MWLBCWR1": {
+    "name": "Achiever - A1",
+    "amount": 76200
+  },
+  "MWLBCWR2": {
+    "name": "Achiever - A2",
+    "amount": 76200
+  },
+  "MWLBCWR3": {
+    "name": "Achiever - A3",
+    "amount": 80200
+  },
+  "MWLBCWR4": {
+    "name": "Achiever - A4",
+    "amount": 80200
+  },
+  "MWLBCWR5": {
+    "name": "Achiever - A5",
+    "amount": 84200
+  },
+  "MWLBCBR1": {
+    "name": "Achiever - B1",
+    "amount": 68200
+  },
+  "MWLBCBR2": {
+    "name": "Achiever - B2",
+    "amount": 68200
+  },
+  "MWLBCBR3": {
+    "name": "Achiever - B3",
+    "amount": 70200
+  },
+  "MWLBCBR4": {
+    "name": "Achiever - B4",
+    "amount": 70200
+  },
+  "MWLBCBR5": {
+    "name": "Achiever - B5",
+    "amount": 72200
+  },
+  "MBLMCMR1": {
+    "name": "Achiever - C1",
+    "amount": 39600
+  },
+  "MBLMCMR2": {
+    "name": "Achiever - C2",
+    "amount": 39600
+  },
+  "MBLMCMR3": {
+    "name": "Achiever - C3",
+    "amount": 40600
+  },
+  "MBLMCMR4": {
+    "name": "Achiever - C4",
+    "amount": 40600
+  },
+  "MBLMCMR5": {
+    "name": "Achiever - C5",
+    "amount": 41600
+  },
+  "MDLBCWR1": {
+    "name": "Achiever - D1",
+    "amount": 114000
+  },
+  "MDLBCWR2": {
+    "name": "Achiever - D2",
+    "amount": 114000
+  },
+  "MDLBCWR3": {
+    "name": "Achiever - D3",
+    "amount": 118000
+  },
+  "MDLBCWR4": {
+    "name": "Achiever - D4",
+    "amount": 118000
+  },
+  "MDLBCWR5": {
+    "name": "Achiever - D5",
+    "amount": 122000
+  },
+  "MDLBCBR1": {
+    "name": "Achiever - E1",
+    "amount": 106000
+  },
+  "MDLBCBR2": {
+    "name": "Achiever - E2",
+    "amount": 106000
+  },
+  "MDLBCBR3": {
+    "name": "Achiever - E3",
+    "amount": 108000
+  },
+  "MDLBCBR4": {
+    "name": "Achiever - E4",
+    "amount": 108000
+  },
+  "MDLBCBR5": {
+    "name": "Achiever - E5",
+    "amount": 110000
+  },
+  "MDLMCMR1": {
+    "name": "Achiever - F1",
+    "amount": 96000
+  },
+  "MDLMCMR2": {
+    "name": "Achiever - F2",
+    "amount": 96000
+  },
+  "MDLMCMR3": {
+    "name": "Achiever - F3",
+    "amount": 97000
+  },
+  "MDLMCMR4": {
+    "name": "Achiever - F4",
+    "amount": 97000
+  },
+  "MDLMCMR5": {
+    "name": "Achiever - F5",
+    "amount": 98000
+  },
+  "MWLMCWR1": {
+    "name": "Achiever - G1",
+    "amount": 70200
+  },
+  "MWLMCWR2": {
+    "name": "Achiever - G2",
+    "amount": 70200
+  },
+  "MWLMCWR3": {
+    "name": "Achiever - G3",
+    "amount": 74200
+  },
+  "MWLMCWR4": {
+    "name": "Achiever - G4",
+    "amount": 74200
+  },
+  "MWLMCWR5": {
+    "name": "Achiever - G5",
+    "amount": 78200
+  },
+  "MDLMCWR1": {
+    "name": "Achiever - H1",
+    "amount": 108000
+  },
+  "MDLMCWR2": {
+    "name": "Achiever - H2",
+    "amount": 108000
+  },
+  "MDLMCWR3": {
+    "name": "Achiever - H3",
+    "amount": 112000
+  },
+  "MDLMCWR4": {
+    "name": "Achiever - H4",
+    "amount": 112000
+  },
+  "MDLMCWR5": {
+    "name": "Achiever - H5",
+    "amount": 116000
+  },
+  "MBLBCWR1": {
+    "name": "Achiever - I1",
+    "amount": 57600
+  },
+  "MBLBCWR2": {
+    "name": "Achiever - I2",
+    "amount": 57600
+  },
+  "MBLBCWR3": {
+    "name": "Achiever - I3",
+    "amount": 61600
+  },
+  "MBLBCWR4": {
+    "name": "Achiever - I4",
+    "amount": 61600
+  },
+  "MBLBCWR5": {
+    "name": "Achiever - I5",
+    "amount": 65600
+  },
+  "MDLMCBR1": {
+    "name": "Achiever - J1",
+    "amount": 100000
+  },
+  "MDLMCBR2": {
+    "name": "Achiever - J2",
+    "amount": 100000
+  },
+  "MDLMCBR3": {
+    "name": "Achiever - J3",
+    "amount": 102000
+  },
+  "MDLMCBR4": {
+    "name": "Achiever - J4",
+    "amount": 102000
+  },
+  "MDLMCBR5": {
+    "name": "Achiever - J5",
+    "amount": 104000
+  },
+  "MBLBCBR1": {
+    "name": "Achiever - K1",
+    "amount": 49600
+  },
+  "MBLBCBR2": {
+    "name": "Achiever - K2",
+    "amount": 49600
+  },
+  "MBLBCBR3": {
+    "name": "Achiever - K3",
+    "amount": 51600
+  },
+  "MBLBCBR4": {
+    "name": "Achiever - K4",
+    "amount": 51600
+  },
+  "MBLBCBR5": {
+    "name": "Achiever - K5",
+    "amount": 53600
+  },
+  "MWLMCBR1": {
+    "name": "Achiever - L1",
+    "amount": 62200
+  },
+  "MWLMCBR2": {
+    "name": "Achiever - L2",
+    "amount": 62200
+  },
+  "MWLMCBR3": {
+    "name": "Achiever - L3",
+    "amount": 64200
+  },
+  "MWLMCBR4": {
+    "name": "Achiever - L4",
+    "amount": 64200
+  },
+  "MWLMCBR5": {
+    "name": "Achiever - L5",
+    "amount": 66200
+  },
+  "MWLB": {
+    "name": "Hardworker - A",
+    "amount": 60200
+  },
+  "MWLM": {
+    "name": "Hardworker - B",
+    "amount": 54200
+  },
+  "MBLB": {
+    "name": "Hardworker - C",
+    "amount": 41600
+  },
+  "MBLM": {
+    "name": "Hardworker - D",
+    "amount": 35600
+  },
+  "MDLB": {
+    "name": "Hardworker - E",
+    "amount": 98000
+  },
+  "MDLM": {
+    "name": "Hardworker - F",
+    "amount": 92000
+  },
+  "MWCWR1": {
+    "name": "Productive - A1",
+    "amount": 64200
+  },
+  "MWCWR2": {
+    "name": "Productive - A2",
+    "amount": 64200
+  },
+  "MWCWR3": {
+    "name": "Productive - A3",
+    "amount": 68200
+  },
+  "MWCWR4": {
+    "name": "Productive - A4",
+    "amount": 68200
+  },
+  "MWCWR5": {
+    "name": "Productive - A5",
+    "amount": 72200
+  },
+  "MWCBR1": {
+    "name": "Productive - B1",
+    "amount": 56200
+  },
+  "MWCBR2": {
+    "name": "Productive - B2",
+    "amount": 56200
+  },
+  "MWCBR3": {
+    "name": "Productive - B3",
+    "amount": 58200
+  },
+  "MWCBR4": {
+    "name": "Productive - B4",
+    "amount": 58200
+  },
+  "MWCBR5": {
+    "name": "Productive - B5",
+    "amount": 60200
+  },
+  "MBCBR1": {
+    "name": "Productive - C1",
+    "amount": 37600
+  },
+  "MBCBR2": {
+    "name": "Productive - C2",
+    "amount": 37600
+  },
+  "MBCBR3": {
+    "name": "Productive - C3",
+    "amount": 39600
+  },
+  "MBCBR4": {
+    "name": "Productive - C4",
+    "amount": 39600
+  },
+  "MBCBR5": {
+    "name": "Productive - C5",
+    "amount": 41600
+  },
+  "MDCWR1": {
+    "name": "Productive - D1",
+    "amount": 102000
+  },
+  "MDCWR2": {
+    "name": "Productive - D2",
+    "amount": 102000
+  },
+  "MDCWR3": {
+    "name": "Productive - D3",
+    "amount": 106000
+  },
+  "MDCWR4": {
+    "name": "Productive - D4",
+    "amount": 106000
+  },
+  "MDCWR5": {
+    "name": "Productive - D5",
+    "amount": 110000
+  },
+  "MDCBR1": {
+    "name": "Productive - E1",
+    "amount": 94000
+  },
+  "MDCBR2": {
+    "name": "Productive - E2",
+    "amount": 94000
+  },
+  "MDCBR3": {
+    "name": "Productive - E3",
+    "amount": 96000
+  },
+  "MDCBR4": {
+    "name": "Productive - E4",
+    "amount": 96000
+  },
+  "MDCBR5": {
+    "name": "Productive - E5",
+    "amount": 98000
+  },
+  "MDCMR1": {
+    "name": "Productive - F1",
+    "amount": 90000
+  },
+  "MDCMR2": {
+    "name": "Productive - F2",
+    "amount": 90000
+  },
+  "MDCMR3": {
+    "name": "Productive - F3",
+    "amount": 91000
+  },
+  "MDCMR4": {
+    "name": "Productive - F4",
+    "amount": 91000
+  },
+  "MDCMR5": {
+    "name": "Productive - F5",
+    "amount": 92000
+  },
+  "MBCMR1": {
+    "name": "Productive - G1",
+    "amount": 32600
+  },
+  "MBCMR2": {
+    "name": "Productive - G2",
+    "amount": 32600
+  },
+  "MBCMR3": {
+    "name": "Productive - G3",
+    "amount": 33600
+  },
+  "MBCMR4": {
+    "name": "Productive - G4",
+    "amount": 33600
+  },
+  "MBCMR5": {
+    "name": "Productive - G5",
+    "amount": 34600
+  },
+  "MBCWR1": {
+    "name": "Productive - H1",
+    "amount": 45600
+  },
+  "MBCWR2": {
+    "name": "Productive - H2",
+    "amount": 45600
+  },
+  "MBCWR3": {
+    "name": "Productive - H3",
+    "amount": 49600
+  },
+  "MBCWR4": {
+    "name": "Productive - H4",
+    "amount": 49600
+  },
+  "MBCWR5": {
+    "name": "Productive - H5",
+    "amount": 53600
+  },
+  "LBCWR1": {
+    "name": "Clean Freak - A1",
+    "amount": 39000
+  },
+  "LBCWR2": {
+    "name": "Clean Freak - A2",
+    "amount": 39000
+  },
+  "LBCWR3": {
+    "name": "Clean Freak - A3",
+    "amount": 43000
+  },
+  "LBCWR4": {
+    "name": "Clean Freak - A4",
+    "amount": 43000
+  },
+  "LBCWR5": {
+    "name": "Clean Freak - A5",
+    "amount": 47000
+  },
+  "LMCBR1": {
+    "name": "Clean Freak - B1",
+    "amount": 25000
+  },
+  "LMCBR2": {
+    "name": "Clean Freak - B2",
+    "amount": 25000
+  },
+  "LMCBR3": {
+    "name": "Clean Freak - B3",
+    "amount": 27000
+  },
+  "LMCBR4": {
+    "name": "Clean Freak - B4",
+    "amount": 27000
+  },
+  "LMCBR5": {
+    "name": "Clean Freak - B5",
+    "amount": 29000
+  },
+  "LMCMR1": {
+    "name": "Clean Freak - C1",
+    "amount": 21000
+  },
+  "LMCMR2": {
+    "name": "Clean Freak - C2",
+    "amount": 21000
+  },
+  "LMCMR3": {
+    "name": "Clean Freak - C3",
+    "amount": 22000
+  },
+  "LMCMR4": {
+    "name": "Clean Freak - C4",
+    "amount": 22000
+  },
+  "LMCMR5": {
+    "name": "Clean Freak - C5",
+    "amount": 23000
+  },
+  "LBCBR1": {
+    "name": "Clean Freak - D1",
+    "amount": 31000
+  },
+  "LBCBR2": {
+    "name": "Clean Freak - D2",
+    "amount": 31000
+  },
+  "LBCBR3": {
+    "name": "Clean Freak - D3",
+    "amount": 33000
+  },
+  "LBCBR4": {
+    "name": "Clean Freak - D4",
+    "amount": 33000
+  },
+  "LBCBR5": {
+    "name": "Clean Freak - D5",
+    "amount": 35000
+  },
+  "LMCWR1": {
+    "name": "Clean Freak - E1",
+    "amount": 33000
+  },
+  "LMCWR2": {
+    "name": "Clean Freak - E2",
+    "amount": 33000
+  },
+  "LMCWR3": {
+    "name": "Clean Freak - E3",
+    "amount": 37000
+  },
+  "LMCWR4": {
+    "name": "Clean Freak - E4",
+    "amount": 37000
+  },
+  "LMCWR5": {
+    "name": "Clean Freak - E5",
+    "amount": 41000
+  },
+  "LBCMR1": {
+    "name": "Clean Freak - F1",
+    "amount": 28000
+  },
+  "LBCMR2": {
+    "name": "Clean Freak - F2",
+    "amount": 28000
+  },
+  "LBCMR3": {
+    "name": "Clean Freak - F3",
+    "amount": 29000
+  },
+  "LBCMR4": {
+    "name": "Clean Freak - F4",
+    "amount": 29000
+  },
+  "LBCMR5": {
+    "name": "Clean Freak - F5",
+    "amount": 30000
+  },
+  "CWR2": {
+    "name": "Fastidious - A2",
+    "amount": 27000
+  },
+  "CWR3": {
+    "name": "Fastidious - A3",
+    "amount": 31000
+  },
+  "CWR4": {
+    "name": "Fastidious - A4",
+    "amount": 31000
+  },
+  "CWR5": {
+    "name": "Fastidious - A5",
+    "amount": 35000
+  },
+  "CBR1": {
+    "name": "Fastidious - B1",
+    "amount": 19000
+  },
+  "CBR2": {
+    "name": "Fastidious - B2",
+    "amount": 19000
+  },
+  "CBR3": {
+    "name": "Fastidious - B3",
+    "amount": 21000
+  },
+  "CBR4": {
+    "name": "Fastidious - B4",
+    "amount": 21000
+  },
+  "CBR5": {
+    "name": "Fastidious - B5",
+    "amount": 23000
+  },
+  "CMR1": {
+    "name": "Fastidious - C1",
+    "amount": 10967
+  },
+  "CMR2": {
+    "name": "Fastidious - C2",
+    "amount": 10967
+  },
+  "CMR3": {
+    "name": "Fastidious - C3",
+    "amount": 11967
+  },
+  "CMR4": {
+    "name": "Fastidious - C4",
+    "amount": 11967
+  },
+  "CMR5": {
+    "name": "Fastidious - C5",
+    "amount": 12967
+  },
+  "LB": {
+    "name": "Snazzy - A",
+    "amount": 23000
+  },
+  "LM": {
+    "name": "Snazzy - B",
+    "amount": 12967
+  },
+  "LW": {
+    "name": "Snazzy - C",
+    "amount": 35000
+  }
+}
