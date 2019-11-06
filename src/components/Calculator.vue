@@ -72,6 +72,11 @@
 // every word in the "Services & Frequency" column within the spreadsheet.
 // Here's the link to the updated spreadsheet: https://docs.google.com/spreadsheets/d/1TcisXWC6tftqh1hOGSIfUDBz5aP7abrka1t6FhGT3zQ/edit?usp=sharing
 
+// code 1: Meals
+// code 2: Laundry
+// code 3: Cleaning
+// code R: Room
+
 export default {
   name: "Calculator",
   props: {
@@ -83,7 +88,7 @@ export default {
       plan: {},
       planName: "No plan with the options selected",
       multiplier: {
-        code: "L",
+        code: "2",
         name: "quantity",
         display: "Quantity"
       },
@@ -95,7 +100,7 @@ export default {
               name: "frequency",
               values: ["Weekly", "Bi-weekly", "Monthly"],
               display: "Frequency",
-              code: "L",
+              code: "2",
               hasMultiplier: true
             }
           ]
@@ -113,7 +118,7 @@ export default {
               name: "frequency",
               values: ["Weekly", "Bi-weekly", "Monthly"],
               display: "Frequency",
-              code: "C"
+              code: "3"
             }
           ]
         },
@@ -124,7 +129,7 @@ export default {
               name: "frequency",
               values: ["Daily", "Weekly", "Bi-weekly"],
               display: "Frequency",
-              code: "M"
+              code: "1"
             }
           ]
         }
@@ -158,16 +163,7 @@ export default {
       this.value = 0;
 
       for (let i = 0; i < pricingKeys.length; i++) {
-        let sortedElement = pricingKeys[i]
-          .split("")
-          .sort()
-          .join("");
-        let sortedResult = result
-          .split("")
-          .sort()
-          .join("");
-
-        if (sortedElement === sortedResult) {
+        if (pricingKeys[i] === result) {
           this.planName = this.pricing[pricingKeys[i]].name;
           this.value = this.pricing[pricingKeys[i]].amount;
           return;
