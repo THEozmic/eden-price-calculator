@@ -67,6 +67,10 @@
 </template>
 
 <script>
+// I came up with the pricing object by using regex to find the first letter of
+// every word in the "Services & Frequency" column within the spreadsheet.
+// Here's the link to the updated spreadsheet: https://docs.google.com/spreadsheets/d/1TcisXWC6tftqh1hOGSIfUDBz5aP7abrka1t6FhGT3zQ/edit?usp=sharing
+
 export default {
   name: "Calculator",
   props: {
