@@ -1,5 +1,6 @@
 <template>
   <div class="calculator">
+    <div class="plan-name">{{this.planName}}</div>
     <form @submit.prevent class="card">
       <div class="card__header">
         <h1>Select &amp; Customize Services</h1>
@@ -30,7 +31,7 @@
                   v-model="input.value"
                 >
                   <optgroup label="Select an option">
-                    <option value disabled selected></option>
+                    <option value selected></option>
                     <option
                       v-for="(value, index) of input.values"
                       :key="index"
@@ -80,6 +81,7 @@ export default {
     return {
       value: 0,
       plan: {},
+      planName: "No plan with the options selected",
       multiplier: {
         code: "L",
         name: "quantity",
@@ -164,36 +166,46 @@ export default {
           .split("")
           .sort()
           .join("");
+
         if (sortedElement === sortedResult) {
+          this.planName = this.pricing[pricingKeys[i]].name;
           this.value = this.pricing[pricingKeys[i]].amount;
           return;
         }
       }
+
+      this.value = 0;
+      this.planName = "No plan with the options selected";
     },
     handleSelectChange(event, input) {
-      if (!event.target.value) {
-        event.preventDefault();
-        return false;
-      }
       let optionValue = "";
 
       optionValue = input.code + event.target.value[0];
+      if (!event.target.value) {
+        optionValue = "";
+      }
       this.plan = {
         ...this.plan,
         [input.code]: optionValue
       };
 
+      let multiplier = this.multiplier.value || 1;
+
       if (input.multiplier) {
-        this.calculateTotalFromMultiplier(input.multiplier.value, input);
+        this.calculateTotalFromMultiplier(multiplier, input, this.plan);
       } else if (this.multiplier) {
-        this.calculateTotalFromMultiplier(this.multiplier.value, {
-          code: this.multiplier.code
-        });
+        this.calculateTotalFromMultiplier(
+          multiplier,
+          {
+            code: this.multiplier.code
+          },
+          this.plan
+        );
       } else {
         this.calculateTotalFromPlan(this.plan);
       }
     },
-    calculateTotalFromMultiplier(multiplier, input) {
+    calculateTotalFromMultiplier(multiplier, input, plan) {
       // This function is to accommodate the "Laundry Quantity" selection.
       // I've done my best to make it reusable by not making it coupled with the
       // "Laundry Quantity" input
@@ -201,24 +213,19 @@ export default {
       // It works by subtracting the base amount (if any) from the current amount,
       // Multiplying the subtracted value by the multiplier and then adding the
       // result back into the current amount.
+      if (!plan) {
+        plan = this.plan;
+      }
 
       if (!parseInt(multiplier)) return;
 
-      if (!this.pricing[this.plan[input.code]]) {
-        this.handleSelectChange(
-          {
-            target: {
-              value: input.values[0]
-            }
-          },
-          input
-        );
+      this.calculateTotalFromPlan(plan);
 
-        input.value = input.values[0];
-      }
-      this.calculateTotalFromPlan(this.plan);
+      if (!this.pricing[plan[input.code]]) return;
+
+      if (this.planName === "No plan with the options selected") return;
       let currentSelectionAmount = parseInt(
-        this.pricing[this.plan[input.code]].amount
+        this.pricing[plan[input.code]].amount
       );
       let amountWithoutCurrentSelection = this.value - currentSelectionAmount;
       let newCurrentSelectionAmount =
@@ -238,6 +245,13 @@ h1 {
 
 .calculator {
   font-size: 12px;
+}
+
+.plan-name {
+  font-weight: bold;
+  color: rgba(23, 26, 25, 0.38);
+  text-align: center;
+  margin: 20px;
 }
 
 .card {
