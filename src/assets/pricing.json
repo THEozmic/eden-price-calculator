@@ -610,5 +610,17 @@
   "2W": {
     "name": "Snazzy - C",
     "amount": 35000
+  },
+  "1D": {
+    "name": "Meal - A",
+    "amount": 80000
+  },
+  "1W": {
+    "name": "Meal - B",
+    "amount": 48200
+  },
+  "1B": {
+    "name": "Meal: C",
+    "amount": 28234
   }
 }
