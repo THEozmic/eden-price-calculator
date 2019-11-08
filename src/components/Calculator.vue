@@ -1,17 +1,19 @@
 <template>
   <div class="calculator">
-    <div class="plan-name">{{this.planName}}</div>
+    <!-- <div class="plan-name">{{this.planName}}</div> -->
     <form @submit.prevent class="card">
       <div class="card__header">
         <h1>Select &amp; Customize Services</h1>
-        <div class="total">NGN {{computedValue}}</div>
+        <div class="total">NGN {{computedTotal}}</div>
       </div>
       <div class="grid-container">
-        <div v-for="option of options" :key="option.name" class="form-control">
+        <div v-for="option of options" :key="option.title" class="form-control">
           <div>
-            <div class="form-control__name">{{option.name}}</div>
-            <div v-for="(input, index) in option.inputs" :key="index">
-              <div v-if="input.hasMultiplier">
+            <div class="form-control__name">{{option.title}}</div>
+
+            <div>
+              <!-- v-for="(input, index) in option.inputs" :key="index" -->
+              <!-- <div>
                 <label :for="multiplier.name" class="form-input__label">{{multiplier.display}}</label>
                 <input
                   type="number"
@@ -21,22 +23,21 @@
                   v-model="multiplier.value"
                   @keypress="(event) => calculateTotalFromMultiplier(String.fromCharCode(event.charCode), input)"
                 />
-              </div>
-              <label :for="input.name" class="form-input__label">{{input.display}}</label>
+              </div>-->
+              <label :for="option.display" class="form-input__label">{{option.display}}</label>
               <div class="relative">
                 <select
-                  @change="(event) => handleSelectChange(event, input)"
+                  @change="(event) => {handleInputChange(event, option)}"
                   class="form-input"
                   required
-                  v-model="input.value"
                 >
                   <optgroup label="Select an option">
                     <option value selected></option>
                     <option
-                      v-for="(value, index) of input.values"
+                      v-for="(value, index) of option.inputs"
                       :key="index"
-                      :value="value"
-                    >{{value}}</option>
+                      :value="index"
+                    >{{value.title}}</option>
                   </optgroup>
                 </select>
                 <div class="form-input__inset">
@@ -45,6 +46,54 @@
                       d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
                     />
                   </svg>
+                </div>
+              </div>
+            </div>
+
+            <div v-if="option.subInputsType">
+              <div v-if="option.type === 'number'">
+                <label
+                  :for="option.subInputDisplay"
+                  class="form-input__label"
+                >{{option.subInputDisplay}}</label>
+                <input
+                  type="number"
+                  :name="option.subInputDisplay"
+                  min="1"
+                  class="form-input"
+                  v-model="option.selectedSubInput.value"
+                  @input="(event) => {handleSubInputChange(event, option)}"
+                />
+              </div>
+              <div v-if="option.type === 'dropdown'">
+                <label
+                  :for="option.subInputDisplay"
+                  class="form-input__label"
+                >{{option.subInputDisplay}}</label>
+
+                <div class="relative">
+                  <select
+                    @change="(event) => handleSubInputChange(event, option)"
+                    class="form-input"
+                    required
+                    v-model="option.selectedSubInput.value"
+                  >
+                    <optgroup label="Select an option" v-if="option.selectedInput">
+                      <option value selected></option>
+                      <option
+                        v-for="(subInput, index) of option.selectedInput.subInputs"
+                        :key="index"
+                        :value="index"
+                      >{{subInput.title}}</option>
+                    </optgroup>
+                  </select>
+                  <div class="form-input__inset">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                      <path
+                        d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </div>
             </div>
@@ -68,68 +117,96 @@
 </template>
 
 <script>
-// I came up with the pricing object by using regex to find the first letter of
-// every word in the "Services & Frequency" column within the spreadsheet.
-// Here's the link to the updated spreadsheet: https://docs.google.com/spreadsheets/d/1TcisXWC6tftqh1hOGSIfUDBz5aP7abrka1t6FhGT3zQ/edit?usp=sharing
-
-// code 1: Meals
-// code 2: Laundry
-// code 3: Cleaning
-// code R: Room
-
 export default {
   name: "Calculator",
-  props: {
-    pricing: Object
-  },
   data() {
     return {
-      value: 0,
-      plan: {},
-      planName: "No plan with the options selected",
-      multiplier: {
-        code: "2",
-        name: "quantity",
-        display: "Quantity"
-      },
+      total: 0,
       options: [
         {
-          name: "laundry",
+          title: "Laundry",
+          type: "number",
+          display: "Frequency",
+          subInputDisplay: "Quantity",
+          selectedInput: {},
+          selectedSubInput: {},
+          subInputsType: "multiplication",
           inputs: [
             {
-              name: "frequency",
-              values: ["Weekly", "Bi-weekly", "Monthly"],
-              display: "Frequency",
-              code: "2",
-              hasMultiplier: true
-            }
-          ]
-        },
-        {
-          name: "home cleaning",
-          inputs: [
-            {
-              name: "quantity",
-              values: ["1", "2", "3", "4", "5+"],
-              display: "Bedrooms (to estimate home size)",
-              code: "R"
+              value: 35000,
+              title: "Weekly"
             },
             {
-              name: "frequency",
-              values: ["Weekly", "Bi-weekly", "Monthly"],
-              display: "Frequency",
-              code: "3"
+              value: 23000,
+              title: "Bi-weekly"
+            },
+            {
+              value: 12967,
+              title: "Monthly"
             }
           ]
         },
         {
-          name: "meals",
+          title: "Home Cleaning",
+          type: "dropdown",
+          subInputsType: "addition",
+          display: "Frequency",
+          subInputDisplay: "Bedrooms (to estimate home size)",
+          selectedInput: {},
+          selectedSubInput: {},
           inputs: [
             {
-              name: "frequency",
-              values: ["Daily", "Weekly", "Bi-weekly"],
-              display: "Frequency",
-              code: "1"
+              value: 27000,
+              title: "Weekly",
+              subInputs: [
+                { value: 0, updateWith: 0, title: "1" },
+                { value: 1, updateWith: 0, title: "2" },
+                { value: 2, updateWith: 4000, title: "3" },
+                { value: 3, updateWith: 4000, title: "4" },
+                { value: 4, updateWith: 8000, title: "5+" }
+              ]
+            },
+            {
+              value: 19000,
+              title: "Bi-Weekly",
+              subInputs: [
+                { value: 0, updateWith: 0, title: "1" },
+                { value: 1, updateWith: 0, title: "2" },
+                { value: 2, updateWith: 2000, title: "3" },
+                { value: 3, updateWith: 2000, title: "4" },
+                { value: 4, updateWith: 4000, title: "5+" }
+              ]
+            },
+            {
+              value: 10967,
+              title: "Monthly",
+              subInputs: [
+                { value: 0, updateWith: 0, title: "1" },
+                { value: 1, updateWith: 0, title: "2" },
+                { value: 2, updateWith: 1000, title: "3" },
+                { value: 3, updateWith: 1000, title: "4" },
+                { value: 4, updateWith: 2000, title: "5+" }
+              ]
+            }
+          ]
+        },
+        {
+          title: "Meals",
+          type: "dropdown",
+          display: "Frequency",
+          selectedInput: {},
+          inputs: [
+            {
+              value: 48200,
+              title: "Weekly"
+            },
+            {
+              value: 28234,
+              title: "Bi-Weekly"
+            },
+            {
+              value: 86000,
+              title: "Daily"
             }
           ]
         }
@@ -137,97 +214,55 @@ export default {
     };
   },
   computed: {
-    computedValue() {
-      return this.value.toLocaleString("en-US");
+    computedTotal() {
+      return this.total.toLocaleString("en-US");
     }
   },
   methods: {
-    calculateTotalFromPlan(plan) {
-      /*
-       * I've created a code system to easily retrieve the plans.
-       * Each drop down selection carries a code as it's value.
-       * When an option is selected, the code is inserted into the plan object.
-       * In order to figure out what the amount is, I reduce the plan object
-       * to a simple string like "CM" which stands for "Cleaning Monthly".
-       * Then I find that code, "CM" within the pricing object and fetch the amount.
-       */
+    handleInputChange(event, option) {
+      option.selectedInput = option.inputs[event.target.value];
+      if (!option.selectedInput) {
+        option.value = 0;
+        this.calculateTotal();
+        return;
+      }
+      option.value = Number(option.selectedInput.value);
 
-      let result =
-        Object.keys(plan).length == 0
-          ? "No plan"
-          : Object.keys(plan)
-              .map(key => plan[key])
-              .reduce((prev, curr) => prev + curr);
+      if (option.subInputDisplay) {
+        if (option.subInputsType === "addition") {
+          option.selectedSubInput = option.selectedInput.subInputs[0];
+          let subInputValue = option.selectedSubInput.updateWith;
+          option.value += Number(subInputValue);
+        }
 
-      let pricingKeys = Object.keys(this.pricing);
-      this.value = 0;
-
-      for (let i = 0; i < pricingKeys.length; i++) {
-        if (pricingKeys[i] === result) {
-          this.planName = this.pricing[pricingKeys[i]].name;
-          this.value = this.pricing[pricingKeys[i]].amount;
-          return;
+        if (option.subInputsType === "multiplication") {
+          if (!option.selectedSubInput.value) {
+            option.selectedSubInput.value = 1;
+          }
+          option.value *= Number(option.selectedSubInput.value);
         }
       }
 
-      this.value = 0;
-      this.planName = "No plan with the options selected";
+      this.calculateTotal();
     },
-    handleSelectChange(event, input) {
-      let optionValue = "";
-
-      optionValue = input.code + event.target.value[0];
-      if (!event.target.value) {
-        optionValue = "";
+    handleSubInputChange(event, option) {
+      if (option.subInputsType === "addition") {
+        option.selectedSubInput =
+          option.selectedInput.subInputs[Number(event.target.value)];
+        option.value =
+          Number(option.selectedSubInput.updateWith) +
+          Number(option.selectedInput.value);
       }
-      this.plan = {
-        ...this.plan,
-        [input.code]: optionValue
-      };
 
-      let multiplier = this.multiplier.value || 1;
-
-      if (input.multiplier) {
-        this.calculateTotalFromMultiplier(multiplier, input, this.plan);
-      } else if (this.multiplier) {
-        this.calculateTotalFromMultiplier(
-          multiplier,
-          {
-            code: this.multiplier.code
-          },
-          this.plan
-        );
-      } else {
-        this.calculateTotalFromPlan(this.plan);
+      if (option.subInputsType === "multiplication") {
+        option.value = option.selectedInput.value * event.target.value;
       }
+      this.calculateTotal();
     },
-    calculateTotalFromMultiplier(multiplier, input, plan) {
-      // This function is to accommodate the "Laundry Quantity" selection.
-      // I've done my best to make it reusable by not making it coupled with the
-      // "Laundry Quantity" input
-
-      // It works by subtracting the base amount (if any) from the current amount,
-      // Multiplying the subtracted value by the multiplier and then adding the
-      // result back into the current amount.
-      if (!plan) {
-        plan = this.plan;
-      }
-
-      if (!parseInt(multiplier)) return;
-
-      this.calculateTotalFromPlan(plan);
-
-      if (!this.pricing[plan[input.code]]) return;
-
-      if (this.planName === "No plan with the options selected") return;
-      let currentSelectionAmount = parseInt(
-        this.pricing[plan[input.code]].amount
-      );
-      let amountWithoutCurrentSelection = this.value - currentSelectionAmount;
-      let newCurrentSelectionAmount =
-        currentSelectionAmount * parseInt(multiplier);
-      let newValue = amountWithoutCurrentSelection + newCurrentSelectionAmount;
-      this.value = newValue;
+    calculateTotal() {
+      this.total = this.options.reduce((prev, curr) => ({
+        value: (prev.value || 0) + (curr.value || 0)
+      })).value;
     }
   }
 };

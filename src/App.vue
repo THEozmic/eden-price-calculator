@@ -6,15 +6,9 @@
 
 <script>
 import Calculator from "./components/Calculator.vue";
-import pricing from "./assets/pricing.json";
 
 export default {
   name: "app",
-  data() {
-    return {
-      pricing
-    };
-  },
   components: {
     Calculator
   }
